@@ -6,6 +6,7 @@
     <hr>
     <%= current_user.username %><br>
     <%= current_user.email %><br>
+    <%= link_to 'Log out', logout_path, method: :delete %>
   <% else %>
     <h2>Welcome, stranger!</h2><br>
       <div class="row">
