@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170127000826) do
 
-  create_table "outcomes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "bet_id"
-  end
-
   create_table "bets", force: :cascade do |t|
     t.text     "bet"
     t.integer  "status"
