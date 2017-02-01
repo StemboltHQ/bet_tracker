@@ -39,6 +39,11 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    autoprefixer-rails (6.7.2)
+      execjs
+    bcrypt (3.1.11)
+    bootstrap-sass (3.2.0.2)
+      sass (~> 3.2)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -80,7 +85,7 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    puma (3.6.2)
+    puma (3.7.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -109,7 +114,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
     rb-fsevent (0.9.8)
-    rb-inotify (0.9.7)
+    rb-inotify (0.9.8)
       ffi (>= 0.5.0)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -154,6 +159,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
+  bcrypt
+  bootstrap-sass (~> 3.2.0)
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -171,4 +179,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.2
+   1.14.3
