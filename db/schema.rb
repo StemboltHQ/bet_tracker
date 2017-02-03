@@ -12,6 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20170202212027) do
 
+  create_table "bet_options", force: :cascade do |t|
+    t.text     "option_text"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "bets", force: :cascade do |t|
     t.text     "bet"
     t.integer  "status"
