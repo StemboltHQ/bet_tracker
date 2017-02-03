@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-  has_many :bets, through: :outcome
-  has_many :outcome
+  has_many :bets, through: :user_bets
+  has_many :user_bets
 end
