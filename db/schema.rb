@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202212027) do
+ActiveRecord::Schema.define(version: 20170202234915) do
 
   create_table "bet_options", force: :cascade do |t|
     t.text     "option_text"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170202212027) do
     t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator_id"
   end
 
   create_table "user_bets", force: :cascade do |t|
