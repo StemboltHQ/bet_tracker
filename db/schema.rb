@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170207175632) do
     t.text     "option_text"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "winner"
   end
 
   create_table "bets", force: :cascade do |t|
@@ -39,8 +40,8 @@ ActiveRecord::Schema.define(version: 20170207175632) do
   create_table "user_bets", force: :cascade do |t|
     t.integer "user_id"
     t.integer "bet_id"
+    t.decimal "amount_bet",    precision: 10, scale: 2
     t.integer "bet_option_id"
-    t.decimal "amount_bet", precision: 10, scale: 2
     t.index ["bet_id"], name: "index_user_bets_on_bet_id"
     t.index ["bet_option_id"], name: "index_user_bets_on_bet_option_id"
     t.index ["user_id"], name: "index_user_bets_on_user_id"
