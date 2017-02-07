@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20170206180635) do
     t.integer "user_id"
     t.integer "bet_id"
     t.integer "amount_bet"
+    t.index ["bet_id"], name: "index_user_bets_on_bet_id"
+    t.index ["user_id"], name: "index_user_bets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
