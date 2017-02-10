@@ -6,6 +6,8 @@ AllCops:
     - 'bin/**/*'
     - 'test/**/*'
     - 'Rakefile'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
