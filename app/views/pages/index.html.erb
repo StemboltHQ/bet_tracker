@@ -7,5 +7,15 @@
     <%= current_user.username %><br>
     <%= current_user.email %>
     <%= link_to 'log out', session_path, method: :delete %>
+  <% else %>
+    <h2>Welcome, stranger!</h2><br>
+      <div class="row">
+        <div class="col col-lg-1 offset-lg-5">
+          <%= link_to 'Log in', new_session_path %>
+        </div>
+        <div class="col col-lg-1">
+          <%= link_to 'Sign up', new_user_path %>
+        </div>
+      </div>
   <% end %>
 </div>
