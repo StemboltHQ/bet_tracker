@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207175632) do
+ActiveRecord::Schema.define(version: 20170209192236) do
 
   create_table "bet_options", force: :cascade do |t|
     t.text     "option_text"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.boolean  "winner"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "winner",      default: false
   end
 
   create_table "bets", force: :cascade do |t|
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170207175632) do
     t.string "email"
     t.string "password"
     t.text   "avatar"
+    t.string "password_digest"
   end
 
 end
