@@ -11,9 +11,13 @@
 
   <p>
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </p>
-<% end %>
+  <p>
+    <%= f.submit 'Sign up' %>
+  </p>
+<% end %> 
