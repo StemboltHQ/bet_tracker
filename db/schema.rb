@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170207175632) do
     t.string "email"
     t.string "password"
     t.text   "avatar"
+    t.string "password_digest"
   end
 
 end
