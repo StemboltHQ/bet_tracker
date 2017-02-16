@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :verify_editor, only: [:edit, :update]
+
   def index
     @users = User.all
   end
@@ -39,5 +41,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :avatar)
+  end
+
+  def verify_editor
+    redirect_to new_session_path unless current_user == User.find(params[:id])
   end
 end
