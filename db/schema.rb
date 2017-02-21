@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20170224192137) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "winner",      default: false
+    t.integer  "bet_id"
+    t.index ["bet_id"], name: "index_bet_options_on_bet_id"
   end
 
   create_table "bets", force: :cascade do |t|

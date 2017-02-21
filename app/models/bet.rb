@@ -1,7 +1,7 @@
 class Bet < ApplicationRecord
   has_many :users, through: :user_bets
   has_many :user_bets
-  has_many :options, through: :user_bets, source: :bet_option
+  has_many :options, class_name: 'BetOption'
 
   def resolve(winning_option:)
     winning_option.update!(winner: true)
