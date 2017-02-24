@@ -60,4 +60,11 @@ RSpec.describe Bet, type: :model do
       end
     end
   end
+
+  describe('#bet_total') do
+    subject { bet1.bet_total }
+
+    let(:expected_bet_total) { 450 }
+    it { is_expected.to eq expected_bet_total }
+  end
 end
