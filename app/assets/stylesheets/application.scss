@@ -11,8 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
 
- *= require tether-theme-basic
- *= require tether-theme-arrows
+ *= require tether
  *= require font-awesome
  *= require_tree .
  *= require_self
