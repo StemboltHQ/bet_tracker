@@ -22,4 +22,8 @@ class Bet < ApplicationRecord
   def amount_owed(lost_bet, won_bet)
     lost_bet.amount_bet * (won_bet.amount_bet / winner_total).round(2)
   end
+
+  def bet_total
+    user_bets.pluck(:amount_bet).sum
+  end
 end
