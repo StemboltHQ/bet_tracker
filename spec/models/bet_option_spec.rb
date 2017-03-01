@@ -37,9 +37,14 @@ RSpec.describe BetOption, type: :model do
 
     context 'Atlanta wins' do
       let(:option1) do
-        BetOption.create(option_text: 'Atlanta wins', winner: true)
+        BetOption.create(option_text: 'Atlanta wins',
+                         winner: true,
+                         bet: bet1)
       end
-      let(:option2) { BetOption.create(option_text: 'New England wins') }
+      let(:option2) do
+        BetOption.create(option_text: 'New England wins',
+                         bet: bet1)
+      end
       let(:winning_option) { option1 }
       let(:expected_total) { 150 }
       it 'returns the total amount bet by all users on the winning option' do
@@ -48,9 +53,14 @@ RSpec.describe BetOption, type: :model do
     end
 
     context 'New England wins' do
-      let(:option1) { BetOption.create(option_text: 'Atlanta wins') }
+      let(:option1) do
+        BetOption.create(option_text: 'Atlanta wins',
+                         bet: bet1)
+      end
       let(:option2) do
-        BetOption.create(option_text: 'New England wins', winner: true)
+        BetOption.create(option_text: 'New England wins',
+                         winner: true,
+                         bet: bet1)
       end
       let(:winning_option) { option2 }
       let(:expected_total) { 300 }
