@@ -4,4 +4,8 @@ class BetOption < ApplicationRecord
 
   scope :winners, -> { where(winner: true) }
   scope :losers, -> { where(winner: false) }
+
+  def option_total
+    user_bets.pluck(:amount_bet).sum
+  end
 end

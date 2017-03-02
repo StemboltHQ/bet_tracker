@@ -20,7 +20,8 @@ class Bet < ApplicationRecord
   end
 
   def amount_owed(lost_bet, won_bet)
-    lost_bet.amount_bet * (won_bet.amount_bet / winner_total).round(2)
+    won_option = options.find_by(winner: true).option_total
+    lost_bet.amount_bet * (won_bet.amount_bet / won_option).round(2)
   end
 
   def bet_total
