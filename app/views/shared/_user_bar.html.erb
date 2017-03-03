@@ -1,0 +1,30 @@
+<% if current_user %>
+  <div class="row user-bar">
+    <div class="col col-md-12">
+      <div class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <div class="navbar-header">
+          <%= link_to 'BetTracker', root_path, class: 'navbar-brand' %>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto align-self-center">
+            <li class="nav-item">
+              <%= link_to 'Create Bet', new_bet_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'View Bets', bets_path, class: 'nav-link' %>
+            </li>
+          </ul>
+          <form class="form-inline dropdown">
+            <button id="avatar-dropdown" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" type="button" style="width: 100%">
+              <img src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png"class="avatar-icon"></img>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="avatar-dropdown">
+              <%= link_to 'Edit Profile', edit_user_path(current_user), class: 'dropdown-item' %>
+              <%= link_to 'Log Out', session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<div class="container">
+  <hr>
+  <% if current_user %>
+    <h2> Creating a new bet </h2>
+    <hr>
+    <%= form_for @bet do |f| %>
+      <%= f.hidden_field :creator_id, value: current_user.id %>
+
+      <div class="form-group">
+        <%= f.label 'Enter bet text:' %>
+        <%= f.text_field :bet, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label 'Enter bet expiration date (placing your bets is not allowed after this date:' %>
+        <%= f.text_field :expires_at, class: 'form-control jquery-datepicker' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Create bet', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+  <% else %>
+    <h2>You are not logged in </h2>
+  <% end %>
+</div>

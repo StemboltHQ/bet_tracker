@@ -1,0 +1,9 @@
+<% if current_user %>
+  <hr>
+  <div class="row">
+    <div class="col col-md-12">
+      <h4>This page will display all the existing bets (25/page) and allow the user to use custom search criteria.</h4>
+    </div>
+  </div>
+  <%= render 'bets/display_bets' %>
+<% end %>

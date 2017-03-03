@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new', as: :new_user_path
 
+  resources :bets
   resources :users
 end

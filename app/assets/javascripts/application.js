@@ -14,5 +14,6 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require lib/date_picker
 //= require turbolinks
 //= require_tree .
