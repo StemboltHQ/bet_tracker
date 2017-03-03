@@ -17,7 +17,7 @@ class BetsController < ApplicationController
       flash[:success] = 'Bet has been created'
       redirect_to @bet
     else
-      flash[:danger] = 'Could not create bet'
+      flash[:danger] = @bet.errors.full_messages.to_sentence
       render 'new'
     end
   end
