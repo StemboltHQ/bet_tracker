@@ -1,15 +1,14 @@
-<div class="container text-center">
-  <h1>Pages#index</h1>
-  <p>Find me in app/views/pages/index.html.erb</p>
+<div class="container">
   <% if current_user %>
-    <h2>Logged-in User:</h2>
     <hr>
-    <%= current_user.username %><br>
-    <%= current_user.email %>
-    <%= link_to 'Log Out', session_path, method: :delete %>
-    <%= link_to 'Edit Profile', edit_user_path(current_user) %>
-  <% else %>
-    <h2>Welcome, stranger!</h2>
+  <% end %>
+
+  <% unless current_user %>
+    <div class="row text-center">
+      <div class="col col-lg-4 offset-lg-4">
+        <h2>Welcome, stranger!</h2><br>
+      </div>
+    </div>
     <div class="row">
       <div class="col col-lg-1 offset-lg-5">
         <%= link_to 'Log in', new_session_path %>
