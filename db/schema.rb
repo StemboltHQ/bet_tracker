@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170303184608) do
     t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "creator_id"
+    t.integer  "creator_id", null: false
     t.datetime "expires_at", null: false
   end
 

@@ -4,6 +4,7 @@ class Bet < ApplicationRecord
   has_many :options, class_name: 'BetOption'
 
   validates :expires_at, presence: true
+  validates :creator_id, presence: true
   validates_with ExpiryDateValidator
 
   def resolve(winning_option:)
