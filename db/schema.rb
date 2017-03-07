@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224192137) do
+ActiveRecord::Schema.define(version: 20170303184608) do
 
   create_table "bet_options", force: :cascade do |t|
     t.text     "option_text"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170224192137) do
     t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "creator_id"
-    t.datetime "expires_at"
+    t.integer  "creator_id", null: false
+    t.datetime "expires_at", null: false
   end
 
   create_table "debts", force: :cascade do |t|
