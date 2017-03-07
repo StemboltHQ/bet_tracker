@@ -19,7 +19,8 @@ Metrics/BlockLength:
   ExcludedMethods:
     - 'describe'
     - 'context'
-
+    - 'let'
+    - 'let!'
 Metrics/LineLength:
   IgnoredPatterns:
     - '\w*it.+do'
