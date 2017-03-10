@@ -5,6 +5,7 @@ class BetsController < ApplicationController
 
   def show
     @bet = Bet.find(params[:id])
+    @user_bet = UserBet.new
   end
 
   def new

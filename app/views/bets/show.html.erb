@@ -1,19 +1,4 @@
-<hr>
-<div class="row">
-  <div class="col col-lg-6 offset-lg-3">
-    <div class="card text-center">
-      <div class="card-header text-muted">
-        <h4><%= @bet.creator.username %></h4>
-      </div>
-      <div class="class-block">
-        <p><h5 class="card-text"><%= @bet.bet %></h5></p>
-      </div>
-      <div class="card-footer text-danger">
-        Expires on: <%= @bet.expires_at.strftime('%A, %B %d %Y, %l:%M %P') %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'shared/bet_display', bet: @bet %>
 
 <hr>
 <div class="row">
@@ -21,14 +6,23 @@
     <div class="card">
       <div class="card-header text-muted">
         <div class="row">
-          <div class="col col-lg-4">User</div>
-          <div class="col col-lg-4">Option ID</div>
-          <div class="col col-lg-4">Amount</div>
+          <div class="col col-lg-12 text-center">
+            <h4>Participants</h4>
+          </div>
         </div>
       </div>
       <div class="card-block">
         <table class="table table-hover">
-          <%= render @bet.user_bets %>
+          <thead class="thead-default">
+            <tr class="row">
+              <th class="col col-lg-4">Username</th>
+              <th class="col col-lg-4">Option #</th>
+              <th class="col col-lg-4">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @bet.user_bets %>
+          </tbody>
         </table>
       </div>
     </div>
@@ -38,19 +32,44 @@
 <hr>
 <div class="row">
   <div class="col col-lg-6 offset-lg-3">
-    <div class="card">
-      <div class="card-header text-muted">
-        <div class="row">
-          <div class="col col-lg-4">Option ID</div>
-          <div class="col col-lg-4">Text</div>
-          <div class="col col-lg-4">Option total</div>
+    <%= form_for [@bet, @user_bet] do |f| %>
+      <div class="card">
+        <div class="card-header text-muted">
+          <div class="row">
+            <div class="col col-lg-12 text-center">
+              <h4>Betting Options</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-hover">
+            <thead class="thead-default">
+              <tr class="row">
+                <th class="col col-lg-2">#</th>
+                <th class="col col-lg-6">Description</th>
+                <th class="col col-lg-4">$ total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @bet.options.each_with_index do |option, index| %>
+                <%= render 'bet_options/bet_option_radio', bet_option: option,
+                  f: f, bet_option_counter: index %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-usd"></i></span>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.text_field :amount_bet, class: 'form-control' %>
+            </div>
+          </div>
+          <%= f.submit 'Bet!', class: 'btn btn-success',
+            role: 'button', style: 'width: 100%;', method: 'get' %>
         </div>
       </div>
-      <div class="card-block">
-        <table class="table table-hover">
-          <%= render @bet.options %>
-        </table>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
