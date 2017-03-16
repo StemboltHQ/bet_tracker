@@ -19,6 +19,7 @@ RSpec.describe Bet, type: :model do
   let(:option2) do
     BetOption.create(option_text: 'New England wins', bet: bet1)
   end
+
   let(:bob_bets_100_on_option1) do
     UserBet.create(user:       bob,
                    bet:        bet1,
