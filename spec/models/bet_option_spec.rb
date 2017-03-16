@@ -42,7 +42,7 @@ RSpec.describe BetOption, type: :model do
       let(:option2) { BetOption.create(option_text: 'New England wins') }
       let(:winning_option) { option1 }
       let(:expected_total) { 150 }
-      it 'returns the total amount bet by all users on the winning option' do
+      xit 'returns the total amount bet by all users on the winning option' do
         expect(subject).to eq expected_total
       end
     end
@@ -54,7 +54,7 @@ RSpec.describe BetOption, type: :model do
       end
       let(:winning_option) { option2 }
       let(:expected_total) { 300 }
-      it 'returns the total amount bet by all users on the winning option' do
+      xit 'returns the total amount bet by all users on the winning option' do
         expect(subject).to eq expected_total
       end
     end
