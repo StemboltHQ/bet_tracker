@@ -1,4 +1,5 @@
 class Bet < ApplicationRecord
+  include DebtFilter
   has_many :users, through: :user_bets
   has_many :user_bets
   has_many :options, class_name: 'BetOption'
@@ -12,14 +13,14 @@ class Bet < ApplicationRecord
   def resolve(winning_option:)
     winning_option.update!(winner: true)
     debt_relationships = user_bets.winners.to_a.product(user_bets.losers.to_a)
-    debt_relationships.map do |(won_bet, lost_bet)|
-      Debt.create(
+    save_debts(debt_relationships.map do |(won_bet, lost_bet)|
+      Debt.new(
         creditor: won_bet.user,
         debtor: lost_bet.user,
         amount:  amount_owed(lost_bet, won_bet),
         bet: self
       )
-    end
+    end)
   end
 
   def winner_total
