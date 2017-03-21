@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'simplecov'
   gem 'simplecov-rcov'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -50,7 +51,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
-  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -66,3 +66,4 @@ end
 
 gem "font-awesome-rails"
 
+gem 'timecop'

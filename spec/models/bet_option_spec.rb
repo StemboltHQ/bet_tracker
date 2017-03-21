@@ -1,18 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe BetOption, type: :model do
-  let!(:bob) do
+  let(:bob) do
     User.create(username: 'Bob', email: 'bob@mail.com', password: '123')
   end
-  let!(:peter) do
+  let(:peter) do
     User.create(username: 'Peter', email: 'peter@mail.com', password: 'pete1')
   end
-  let!(:jack) do
+  let(:jack) do
     User.create(username: 'Jack', email: 'jack@mail.com', password: 'notjack')
   end
 
   let(:bet1) do
-    Bet.create(bet: 'Superbowl: Atlanta vs New England, place your bets!')
+    Bet.create(bet: 'Superbowl: Atlanta vs New England, place your bets!',
+               expires_at: DateTime.tomorrow, creator_id: bob.id)
   end
 
   let!(:users_place_bets) do
@@ -37,24 +38,27 @@ RSpec.describe BetOption, type: :model do
 
     context 'Atlanta wins' do
       let(:option1) do
-        BetOption.create(option_text: 'Atlanta wins', winner: true)
+        BetOption.create(option_text: 'Atlanta wins', winner: true, bet: bet1)
       end
-      let(:option2) { BetOption.create(option_text: 'New England wins') }
+      let(:option2) do
+        BetOption.create(option_text: 'New England wins', bet: bet1)
+      end
       let(:winning_option) { option1 }
       let(:expected_total) { 150 }
-      xit 'returns the total amount bet by all users on the winning option' do
+      it 'returns the total amount bet by all users on the winning option' do
         expect(subject).to eq expected_total
       end
     end
 
     context 'New England wins' do
-      let(:option1) { BetOption.create(option_text: 'Atlanta wins') }
+      let(:option1) { BetOption.create(option_text: 'Atlanta wins', bet: bet1) }
       let(:option2) do
-        BetOption.create(option_text: 'New England wins', winner: true)
+        BetOption.create(option_text: 'New England wins', winner: true,
+                         bet: bet1)
       end
       let(:winning_option) { option2 }
       let(:expected_total) { 300 }
-      xit 'returns the total amount bet by all users on the winning option' do
+      it 'returns the total amount bet by all users on the winning option' do
         expect(subject).to eq expected_total
       end
     end
