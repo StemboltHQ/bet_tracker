@@ -92,4 +92,16 @@ RSpec.describe Bet, type: :model do
     let(:expected_amount_owed) { 100 }
     it { is_expected.to eq expected_amount_owed }
   end
+
+  describe('#created_by?') do
+    subject { bet1.created_by?(user) }
+    context "the bet was created by the user Bob" do
+      let(:user) { bob }
+      it { is_expected.to be true }
+    end
+    context "the bet was not created by the user Jack" do
+      let(:user) { jack }
+      it { is_expected.to be false }
+    end
+  end
 end
