@@ -34,4 +34,8 @@ class Bet < ApplicationRecord
   def bet_total
     user_bets.pluck(:amount_bet).sum
   end
+
+  def created_by?(user)
+    user == creator
+  end
 end
