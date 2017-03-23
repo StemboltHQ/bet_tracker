@@ -1,23 +1,32 @@
 <tbody class="thead-default">
   <tr>
-    <% if current_user == debt.debtor %>
-      <td class="col-md-3 text-danger"><h4>Me</h4></td>
-    <% else %>
-      <td class="col-md-3 text-muted"><%= debt.debtor.username %></td>
-    <% end %>
+    <td class="col-md-3"><%= debt.debtor.username %></td>
     <td class="col-md-3">
-      <span class="debt-amount">$<%= debt.amount %></span>
-      <div><i class="underarrow text-danger fa fa-long-arrow-right"></i></div>
+      <span>$<%= debt.amount %></span>
+      <span><i class="fa fa-long-arrow-right"></i></span>
     </td>
-    <td class="col-md-3 text-muted"><%= debt.creditor.username %></td>
-    <% if debt.payment_date.nil? %>
-      <td class="col-md-3 text-danger">
-        Not paid
-      </td>
-    <% else %>
-      <td class="col-md-3 text-success">
-        Paid on <%= debt.payment_date %>
-      </td>
-    <% end %>
+    <td class="col-md-3">
+      <% if debt.creditor == current_user %>
+        <h4 class="text-primary">Me</h4>
+      <% else %>
+        <%= debt.creditor.username %>
+      <% end %>
+    </td>
+      <% if debt.creditor == current_user && debt.payment_date.nil?%>
+        <td class="col-md-3">
+          <%= link_to 'Resolve', user_debt_path(debt.debtor, debt, bet_id: @bet), method: :patch,
+                class: 'btn btn-primary', role: 'button' %>
+        </td>
+      <% else %>
+        <% if debt.payment_date.nil? %>
+          <td class="col-md-3 text-danger">
+            Not paid
+          </td>
+        <% else %>
+          <td class="col-md-3 text-success">
+            Paid on <%= debt.payment_date.strftime('%A, %B %d %Y, %l:%M %P') %>
+          </td>
+        <% end %>
+      <% end %>
   </tr>
 </tbody>
