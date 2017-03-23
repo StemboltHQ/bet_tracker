@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303184608) do
+ActiveRecord::Schema.define(version: 20170323160837) do
 
   create_table "bet_options", force: :cascade do |t|
     t.text     "option_text"
@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20170303184608) do
   create_table "debts", force: :cascade do |t|
     t.integer  "debtor_id"
     t.integer  "creditor_id"
-    t.decimal  "amount",      precision: 10, scale: 2
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.decimal  "amount",       precision: 10, scale: 2
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.datetime "payment_date"
     t.index ["creditor_id"], name: "index_debts_on_creditor_id"
     t.index ["debtor_id"], name: "index_debts_on_debtor_id"
   end
