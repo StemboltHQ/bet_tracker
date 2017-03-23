@@ -2,6 +2,7 @@ class Bet < ApplicationRecord
   has_many :users, through: :user_bets
   has_many :user_bets
   has_many :options, class_name: 'BetOption'
+  has_many :debts
   belongs_to :creator, class_name: 'User'
 
   validates :expires_at, presence: true
@@ -15,7 +16,8 @@ class Bet < ApplicationRecord
       Debt.create(
         creditor: won_bet.user,
         debtor: lost_bet.user,
-        amount:  amount_owed(lost_bet, won_bet)
+        amount:  amount_owed(lost_bet, won_bet),
+        bet: self
       )
     end
   end
