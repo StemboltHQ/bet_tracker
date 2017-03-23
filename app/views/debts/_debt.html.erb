@@ -1,0 +1,19 @@
+<tbody class="thead-default">
+  <tr>
+    <td class="col-md-3"><%= debt.debtor.username %></td>
+    <td class="col-md-3">
+      <span>$<%= debt.amount %></span>
+      <span><i class="fa fa-long-arrow-right"></i></span>
+    </td>
+    <td class="col-md-3 text-muted"><%= debt.creditor.username %></td>
+    <% if debt.payment_date.nil? %>
+      <td class="col-md-3 text-danger">
+        Not paid
+      </td>
+    <% else %>
+      <td class="col-md-3 text-success">
+        Paid on <%= debt.payment_date %>
+      </td>
+    <% end %>
+  </tr>
+</tbody>
