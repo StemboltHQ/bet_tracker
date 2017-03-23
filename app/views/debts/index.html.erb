@@ -1,0 +1,27 @@
+<hr>
+<div class="row">
+  <div class="col col-lg-12 text-center">
+    <h3>Viewing my debts</h3>
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col col-lg-12">
+    <table class="table table-hover">
+      <thead class="thead-default">
+        <tr>
+          <th class="col-md-3">I owe</th>
+          <th class="col-md-3">this much</th>
+          <th class="col-md-3">because</th>
+          <th class="col-md-3">and I bet on</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @debts.each do |debt| %>
+          <%= render 'my_debt', debt: debt %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

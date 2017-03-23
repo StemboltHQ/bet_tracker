@@ -13,6 +13,10 @@
             <li class="nav-item">
               <%= link_to 'View Bets', bets_path, class: 'nav-link' %>
             </li>
+            <li class="nav-item">
+              <%= link_to 'My Debts', user_debts_path(current_user),
+                class: 'nav-link' %>
+            </li>
           </ul>
           <form class="form-inline dropdown">
             <button id="avatar-dropdown" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" type="button" style="width: 100%">

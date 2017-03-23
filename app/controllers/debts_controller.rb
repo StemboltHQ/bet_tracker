@@ -1,5 +1,7 @@
 class DebtsController < ApplicationController
-  def index; end
+  def index
+    @debts = current_user.debts
+  end
 
   def update; end
 end
