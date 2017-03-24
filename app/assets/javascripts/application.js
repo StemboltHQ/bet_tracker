@@ -15,5 +15,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require lib/date_picker
+//= require lib/underarrow
 //= require turbolinks
 //= require_tree .

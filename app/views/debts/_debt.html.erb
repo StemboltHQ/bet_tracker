@@ -1,9 +1,13 @@
 <tbody class="thead-default">
   <tr>
-    <td class="col-md-3"><%= debt.debtor.username %></td>
+    <% if current_user == debt.debtor %>
+      <td class="col-md-3 text-danger"><h4>Me</h4></td>
+    <% else %>
+      <td class="col-md-3 text-muted"><%= debt.debtor.username %></td>
+    <% end %>
     <td class="col-md-3">
-      <span>$<%= debt.amount %></span>
-      <span><i class="fa fa-long-arrow-right"></i></span>
+      <span class="debt-amount">$<%= debt.amount %></span>
+      <div><i class="underarrow text-danger fa fa-long-arrow-right"></i></div>
     </td>
     <td class="col-md-3 text-muted"><%= debt.creditor.username %></td>
     <% if debt.payment_date.nil? %>
