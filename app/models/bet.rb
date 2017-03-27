@@ -2,6 +2,7 @@ class Bet < ApplicationRecord
   has_many :users, through: :user_bets
   has_many :user_bets
   has_many :options, class_name: 'BetOption'
+  belongs_to :creator, class_name: 'User'
 
   validates :expires_at, presence: true
   validates :creator_id, presence: true
