@@ -1,0 +1,38 @@
+<div class="paginator">
+  <ol class="pagination">
+    <%=
+      content_tag :li, class: previous_link_css_class do
+        link_to bets_path(page: '1'), class: 'page-link' do
+          content_tag :i, nil, class: 'fa fa-angle-double-left'
+        end
+      end
+    %>
+    <%=
+      content_tag :li, class: previous_link_css_class do
+        link_to bets_path(page: current_page - 1), class: 'page-link' do
+          content_tag :i, nil, class: 'fa fa-angle-left'
+        end
+      end
+    %>
+
+    <% blocks.each do |page|%>
+      <%= render 'shared/blocks', page: page,
+        page_item_css_class: page_item_css_class(page, current_page) %>
+    <% end %>
+
+    <%=
+      content_tag :li, class: next_link_css_class do
+        link_to bets_path(page: current_page + 1), class: 'page-link' do
+          content_tag :i, nil, class: 'fa fa-angle-right'
+        end
+      end
+    %>
+    <%=
+      content_tag :li, class: next_link_css_class do
+        link_to bets_path(page: last_page), class: 'page-link' do
+          content_tag :i, nil, class: 'fa fa-angle-double-right'
+        end
+      end
+    %>
+  </ol>
+</div>
