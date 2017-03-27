@@ -1,6 +1,12 @@
 class BetsController < ApplicationController
+  include Utilities::Paginator
+  helper Utilities::Paginator
+
   def index
-    @bets = Bet.includes(:user_bets)
+    current_page = params[:page].nil? ? 1 : params[:page].to_i
+    @bets = items_to_display(model: Bet,
+                             items_per_page: 25,
+                             current_page: current_page)
   end
 
   def show
