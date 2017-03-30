@@ -1,6 +1,6 @@
 class BetsController < ApplicationController
   def index
-    @bets = Bet.all
+    @bets = Bet.includes(:user_bets)
   end
 
   def show
