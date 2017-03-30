@@ -6,9 +6,19 @@ class BetOptionsController < ApplicationController
     @bet_option = BetOption.new
   end
 
-  def create; end
+  def create
+    @bet = Bet.find(params[:bet_id])
+    @bet_option = @bet.options.new(bet_option_params)
+    return unless @bet_option.save
+    flash[:success] = 'Bet option added'
+    redirect_to @bet
+  end
 
   private
+
+  def bet_option_params
+    params.require(:bet_option).permit(:option_text)
+  end
 
   def require_login
     return if current_user
