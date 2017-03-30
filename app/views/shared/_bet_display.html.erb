@@ -1,17 +1,19 @@
-<hr>
-<div class="row">
-  <div class="col col-lg-6 offset-lg-3">
-    <div class="card text-center">
-      <div class="card-header text-muted">
-        <h4>Bet Description</h4>
-      </div>
+<div class="display-bet">
+  <hr>
+  <div class="row">
+    <div class="col col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-header text-muted">
+          <h4 class="card-header-text">Bet Description</h4>
+        </div>
 
-      <div class="class-block">
-        <h5 class="card-text"><%= bet.bet %></h5>
-      </div>
+        <div class="class-block">
+          <h5 class="card-text"><%= bet.bet %></h5>
+        </div>
 
-      <div class="card-footer text-danger">
-        Expires on: <%= bet.expires_at.strftime('%A, %B %d %Y, %l:%M %P') %>
+        <div class="card-footer text-danger">
+          Expires on: <%= bet.expires_at.strftime('%A, %B %d %Y, %l:%M %P') %>
+      </div>
       </div>
     </div>
   </div>
