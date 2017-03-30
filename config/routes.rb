@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :bets do
     resources :user_bets, only: :create
+    resources :bet_options, shallow: true
   end
   resources :users
 end
