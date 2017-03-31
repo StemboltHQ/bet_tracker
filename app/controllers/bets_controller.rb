@@ -25,6 +25,13 @@ class BetsController < ApplicationController
   private
 
   def bet_params
-    params.require(:bet).permit(:bet, :status, :expires_at, :creator_id)
+    params.require(:bet).permit(:bet, :status, :creator_id)
+          .merge(expires_at: convert_date_to_server_time)
+  end
+
+  def convert_date_to_server_time
+    user_date_string = params[:bet][:expires_at]
+    user_date_utc = DateTime.now.strftime('%z')
+    (user_date_string + ' UTC' + user_date_utc).to_datetime.utc
   end
 end
