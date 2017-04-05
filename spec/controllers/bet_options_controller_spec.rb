@@ -7,7 +7,7 @@ RSpec.describe BetOptionsController, type: :controller do
       User.create(username: 'Bob', email: 'bob@mail.com', password: '123')
     end
     let(:bet) do
-      Bet.create(bet: 'Bet text',
+      Bet.create(description: 'Bet text',
                  expires_at: DateTime.tomorrow,
                  creator_id: user.id)
     end
@@ -31,7 +31,7 @@ RSpec.describe BetOptionsController, type: :controller do
       User.create(username: 'Bob', email: 'bob@mail.com', password: '123')
     end
     let(:bet) do
-      Bet.create(bet: 'Bet text',
+      Bet.create(description: 'Bet text',
                  expires_at: DateTime.tomorrow,
                  creator_id: user.id)
     end
