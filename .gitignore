@@ -20,3 +20,9 @@
 # Ignore Byebug command history file.
 .byebug_history
 coverage/
+
+# Ignore vendor/cache/ files.
+/vendor/cache
+
+# Ignore node/modules files.
+/node_modules/
