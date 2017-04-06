@@ -4,5 +4,5 @@
     <%= f.label :bet_option, bet_option_counter + 1 %>
   </td>
   <td class="col col-lg-6"><%= bet_option.option_text %></td>
-  <td class="col col-lg-4">$<%= bet_option.option_total %></td>
+  <td class="col col-lg-4">$<%= format('%.2f', bet_option.option_total) %></td>
 </tr>
