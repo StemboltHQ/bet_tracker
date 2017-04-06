@@ -64,7 +64,8 @@
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-usd"></i></span>
                 <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.text_field :amount_bet, class: 'form-control' %>
+                <%= f.number_field :amount_bet, class: 'form-control money-formatter',
+                  step: :any, placeholder: 'Enter a number, e.g. 10.35' %>
               </div>
             </div>
             <%= f.submit 'Bet!', class: 'btn btn-success btn-full-width',

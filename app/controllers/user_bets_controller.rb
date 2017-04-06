@@ -5,7 +5,7 @@ class UserBetsController < ApplicationController
     if @user_bet.save
       flash[:success] = 'Your bet has been successfully placed!'
     else
-      flash[:danger] = 'Couldn\'t place your bet.'
+      flash[:danger] = @user_bet.errors.full_messages.to_sentence
     end
     redirect_to bet_path(@bet)
   end
