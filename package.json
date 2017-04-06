@@ -1,0 +1,27 @@
+{
+  "name": "bet_tracker",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StemboltHQ/bet_tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StemboltHQ/bet_tracker/issues"
+  },
+  "homepage": "https://github.com/StemboltHQ/bet_tracker#readme"
+}
