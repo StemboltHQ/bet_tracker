@@ -29,10 +29,24 @@ class BetsController < ApplicationController
 
   def calculate_debts
     bet = Bet.find(params[:id])
-    winning_option = BetOption.find(params[:bet_option_id])
+    if params[:bet_option_id].nil?
+      resolve_option_not_selected(bet)
+    else
+      winning_option = BetOption.find(params[:bet_option_id])
+      resolve_option_selected(bet, winning_option)
+    end
+  end
+
+  def resolve_option_selected(bet, winning_option)
     bet.resolve(winning_option: winning_option)
     flash[:success] = 'Bet has been resolved!'
+    bet.update(resolved: true)
     redirect_to bet
+  end
+
+  def resolve_option_not_selected(bet)
+    flash[:danger] = 'Please select an option first'
+    redirect_to resolve_bet_path(bet)
   end
 
   private
