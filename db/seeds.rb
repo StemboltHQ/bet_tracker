@@ -4,7 +4,7 @@ ivan = User.create(username: 'Ivan', email: 'ivan@mail.com', password: '123')
 maria = User.create(username: 'Maria', email: 'maria@mail.com', password: '123')
 
 # Resolved bets
-bet1 = Bet.create(bet_description: 'Ninjas vs Pirates',
+bet1 = Bet.create(description: 'Ninjas vs Pirates',
                   status: 0,
                   creator_id: bob.id,
                   expires_at: 1.year.from_now)
@@ -31,7 +31,7 @@ UserBet.create(user: maria,
                amount_bet: 143.53)
 bet1.resolve(winning_option: b1_option2)
 
-bet2 = Bet.create(bet_description: 'Soccer: England VS Spain',
+bet2 = Bet.create(description: 'Soccer: England VS Spain',
                   creator_id: ivan.id,
                   expires_at: 1.year.from_now,
                   status: 0)
@@ -63,7 +63,7 @@ UserBet.create(user: maria,
 bet2.resolve(winning_option: b2_option4)
 
 # Unresolved bets
-bet3 = Bet.create(bet_description: 'I bet Ivan will not deliver '\
+bet3 = Bet.create(description: 'I bet Ivan will not deliver '\
                   'the project on time',
                   status: 1,
                   expires_at: 1.year.from_now,
@@ -84,7 +84,7 @@ UserBet.create(bet: bet3,
 # Expired bets
 bet4 = Bet.new
 Timecop.freeze(Date.new(2016, 8, 17)) do
-  bet4 = Bet.create(bet_description: 'Rio Olympics: who will win?',
+  bet4 = Bet.create(description: 'Rio Olympics: who will win?',
                     status: 1,
                     expires_at: DateTime.new(2016, 8, 20),
                     creator_id: ivan.id)
