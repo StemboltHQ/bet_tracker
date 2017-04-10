@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: :new_user_path
 
   get 'bets/:id/resolve', to: 'bets#resolve', as: :resolve_bet
-
+  post 'bets/:id/calculate_debts', to: 'bets#calculate_debts',
+    as: :calculate_debts
   resources :bets do
     resources :user_bets, only: :create
     resources :bet_options, shallow: true

@@ -27,6 +27,8 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
   end
 
+  def calculate_debts; end
+
   private
 
   def bet_params
