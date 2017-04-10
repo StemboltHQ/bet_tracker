@@ -12,7 +12,8 @@ RSpec.describe Bet, type: :model do
   end
 
   let(:bet1) do
-    Bet.create(bet: 'Superbowl: Atlanta vs New England, place your bets!',
+    Bet.create(description: 'Superbowl: Atlanta vs New England, '\
+               'place your bets!',
                expires_at: DateTime.tomorrow, creator_id: bob.id)
   end
   let(:option1) { BetOption.create(option_text: 'Atlanta wins', bet: bet1) }

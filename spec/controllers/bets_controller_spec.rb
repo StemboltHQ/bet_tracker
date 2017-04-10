@@ -12,7 +12,7 @@ RSpec.describe BetsController, type: :controller do
       User.create(username: 'Bob', email: 'bob@mail.com', password: '123')
     end
     let(:bet) do
-      Bet.create(bet: 'Bet text',
+      Bet.create(description: 'Bet text',
                  expires_at: DateTime.tomorrow,
                  creator_id: user.id)
     end
@@ -31,7 +31,7 @@ RSpec.describe BetsController, type: :controller do
     end
     context 'with valid params' do
       let(:bet_params) do
-        { bet: 'Bet text',
+        { description: 'Bet text',
           expires_at: DateTime.tomorrow,
           creator_id: user.id }
       end
@@ -43,7 +43,7 @@ RSpec.describe BetsController, type: :controller do
     end
     context 'with invalid params' do
       let(:bet_params) do
-        { bet: 'Invalid Bet',
+        { description: 'Invalid Bet',
           expires_at: DateTime.yesterday,
           creator_id: user.id }
       end

@@ -9,7 +9,7 @@ RSpec.describe ExpiryDateValidator, type: :validator do
                   password: 'hammerandsickle')
     end
     let(:bet) do
-      Bet.new(bet: 'Test bet',
+      Bet.new(description: 'Test bet',
               creator_id: user.id,
               expires_at: expiry_date)
     end
