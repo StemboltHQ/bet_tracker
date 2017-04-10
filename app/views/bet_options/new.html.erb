@@ -1,0 +1,17 @@
+<div class="container">
+  <hr>
+  <h2> Creating a new bet option </h2>
+  <hr>
+  <%= form_for [@bet, @bet_option] do |f| %>
+
+    <div class="form-group">
+      <%= f.label 'Bet option description:' %>
+      <%= f.text_field :option_text, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit 'Create bet option', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+</div>
