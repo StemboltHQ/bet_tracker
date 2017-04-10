@@ -23,6 +23,10 @@ class BetsController < ApplicationController
     end
   end
 
+  def resolve
+    @bet = Bet.find(params[:id])
+  end
+
   private
 
   def bet_params
