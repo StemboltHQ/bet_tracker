@@ -27,7 +27,13 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
   end
 
-  def calculate_debts; end
+  def calculate_debts
+    bet = Bet.find(params[:id])
+    winning_option = BetOption.find(params[:bet_option_id])
+    bet.resolve(winning_option: winning_option)
+    flash[:success] = 'Bet has been resolved!'
+    redirect_to bet
+  end
 
   private
 
