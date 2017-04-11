@@ -1,0 +1,6 @@
+<tr>
+  <td class="col-md-3"><%= debt.creditor.username %></td>
+  <td class="col-md-3">$<%= debt.amount %></td>
+  <td class="col-md-3"><%= debt.won_option.option_text %></td>
+  <td class="col-md-3"><%= debt.user_option(current_user).option_text %></td>
+</tr>
