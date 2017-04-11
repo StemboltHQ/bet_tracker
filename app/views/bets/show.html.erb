@@ -4,13 +4,15 @@
   <hr>
   <div class="resolve-bet">
     <div class="row text-center">
-      <div class="col col-lg-12">
+      <div class="col col-lg-6 offset-lg-3">
         <% if @bet.resolved? %>
           <div class="text-muted">
             <h3>This bet has been resolved.</h3>
           </div>
         <% else %>
-          <%= link_to 'Resolve Bet', resolve_bet_path, class: 'btn btn-success',
+          <%= link_to 'Resolve this bet',
+            resolve_bet_path,
+            class: 'btn btn-success resolve-bet-btn',
             role: 'button' %>
         <% end %>
       </div>
