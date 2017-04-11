@@ -1,4 +1,17 @@
 <div class="picking-winning-bet">
+  <hr>
+  <div class="row">
+    <div class="col col-lg-12 text-center">
+      <h3>Selecting the winning option for:</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-12 text-center text-muted">
+      <h5><%= @bet.description %></h5>
+    </div>
+  </div>
+
+  <hr>
   <div class="row">
     <div class="col col-lg-12">
       <%= form_tag calculate_debts_path, method: 'POST' do %>
