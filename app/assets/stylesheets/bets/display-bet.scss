@@ -1,11 +1,16 @@
-.display-bet{
-  .card-header{
-    background-color: #292b2c;
+$white-colour: #fff;
+$display-bet-colour: #292b2c;
+
+.display-bet {
+  .card-header {
+    background-color: $display-bet-colour;
   }
-  .card-header-text{
-    color: white;
+
+  .card-header-text {
+    color: $white-colour;
   }
-  .btn-full-width{
+
+  .btn-full-width {
     width: 100%;
   }
 }
