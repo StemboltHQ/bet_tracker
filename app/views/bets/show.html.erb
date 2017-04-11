@@ -21,6 +21,7 @@
 <% end %>
 
 <% if @bet.resolved? %>
+  <%= render 'debts/debts_per_bet', bet: @bet %>
 <% else %>
   <%= render 'display_unresolved_bets', bet: @bet, user_bet: @user_bet %>
 <% end %>
