@@ -1,5 +1,6 @@
 class BetsController < ApplicationController
   before_action :check_bet_creator, only: :resolve
+  before_action :check_if_resolved, only: :resolve
 
   def index
     @bets = Bet.includes(:user_bets)
@@ -61,6 +62,13 @@ class BetsController < ApplicationController
     @bet = Bet.find(params[:id])
     return if current_user == @bet.creator
     flash[:danger] = 'You cannot resolve this bet because you did\'t create it'
+    redirect_to @bet
+  end
+
+  def check_if_resolved
+    @bet = Bet.find(params[:id])
+    return unless @bet.resolved
+    flash[:danger] = 'This bet has been already resolved'
     redirect_to @bet
   end
 end
