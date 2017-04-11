@@ -1,4 +1,6 @@
 class BetsController < ApplicationController
+  before_action :check_bet_creator, only: :resolve
+
   def index
     @bets = Bet.includes(:user_bets)
   end
@@ -53,5 +55,12 @@ class BetsController < ApplicationController
 
   def bet_params
     params.require(:bet).permit(:description, :status, :expires_at, :creator_id)
+  end
+
+  def check_bet_creator
+    @bet = Bet.find(params[:id])
+    return if current_user == @bet.creator
+    flash[:danger] = 'You cannot resolve this bet because you did\'t create it'
+    redirect_to @bet
   end
 end
