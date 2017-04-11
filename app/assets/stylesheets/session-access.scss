@@ -1,13 +1,15 @@
-.sess-label{
+.sess-label {
+  float: left;
   width: 35%;
-  float: left;
 }
-.sess-input-field{
-  width: 65%;
+
+.sess-input-field {
+  float: left;
   height: 35px;
-  float: left;
-}
-.sess-button{
   width: 65%;
+}
+
+.sess-button {
   margin: auto 0 auto 35%;
+  width: 65%;
 }

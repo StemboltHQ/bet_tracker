@@ -67,3 +67,5 @@ end
 gem "font-awesome-rails"
 
 gem 'timecop'
+
+gem 'scss_lint', require: false
